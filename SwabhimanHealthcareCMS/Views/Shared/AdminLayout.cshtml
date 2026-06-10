@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="d-flex">
+        <div style="width:250px;height:100vh;background:#111;color:white;">
+
+            <h4 class="p-3">CMS</h4>
+
+            <ul class="nav flex-column">
+
+                <li><a asp-controller="Card" asp-action="Index">Cards</a></li>
+
+                <li><a asp-controller="Center" asp-action="Index">Centers</a></li>
+                <li><a asp-controller="Customer" asp-action="Index">Customers</a></li>
+                <li><a asp-controller="User" asp-action="Index">Users</a></li>
+                <li><a asp-controller="Vendor" asp-action="Index">Vendors</a></li>
+                <hr />
+                <li><a asp-controller="Role" asp-action="Index">Roles</a></li>
+
+                <li><a asp-controller="Page" asp-action="Index">Pages</a></li>
+
+                <li><a asp-controller="Menu" asp-action="Index">Header Menu</a></li>
+
+                <li><a asp-controller="Wallet" asp-action="Index">State Wallet Amounts</a></li>
+
+                <li><a asp-controller="Report" asp-action="Index">Reports</a></li>
+
+                <li><a asp-controller="Setting" asp-action="Index">Settings</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="container-fluid p-4">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</body>
+</html>

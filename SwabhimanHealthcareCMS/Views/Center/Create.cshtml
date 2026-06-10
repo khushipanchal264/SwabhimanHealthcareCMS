@@ -1,0 +1,44 @@
+﻿@model Center
+
+<h3>Create Center</h3>
+
+<form asp-action="Create">
+    @* <select asp-for="CenterId" class="form-control">
+        <option value="">Select Center</option>
+    </select> *@
+
+    <div class="mb-3">
+        <label>Center Name</label>
+        <input asp-for="CenterName"
+               class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Center Code</label>
+        <input asp-for="CenterCode"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Area</label>
+        <input asp-for="Area"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Location</label>
+        <input asp-for="Location"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Phone</label>
+        <input asp-for="Phone"
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Save
+    </button>
+
+</form>

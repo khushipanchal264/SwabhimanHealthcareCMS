@@ -1,0 +1,133 @@
+﻿@model SwabhimanHealthcareCMS.Models.Customer
+
+<h2>Create Customer</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+
+    <div class="card p-3 mb-3">
+        <h4>Basic Information</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Customer Name *</label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label>Phone No *</label>
+                <input asp-for="PhoneNo" class="form-control" />
+            </div>
+            <div class="col-md-6 mt-3">
+                <label>Email</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="card p-3 mb-3">
+        <h4>Personal Details</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Date Of Birth *</label>
+                <input asp-for="DateOfBirth"
+                       type="date"
+                       class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                <label>Gender</label>
+                <select asp-for="Gender" class="form-control">
+                    <option>Select an option</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Blood Group</label>
+                <select asp-for="BloodGroup" class="form-control">
+                    <option>Select an option</option>
+                    <option>A+</option>
+                    <option>B+</option>
+                    <option>O+</option>
+                    <option>AB+</option>
+                </select>
+            </div>
+        </div>
+        <div class="mt-3">
+            <label>Health Status</label>
+            <select asp-for="HealthStatus" class="form-control">
+                <option>Select an option</option>
+                <option>Healthy</option>
+                <option>Critical</option>
+                <option>Under Treatment</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="card p-3 mb-3">
+        <h4>Address</h4>
+
+        <textarea asp-for="Address"
+                  class="form-control">
+        </textarea>
+    </div>
+
+    <div class="card p-3 mb-3">
+        <h4>Profile Photo</h4>
+
+        <input type="file"
+               name="ProfileImage"
+               class="form-control" />
+    </div>
+
+    <div class="card p-3 mb-3">
+        <h4>Location</h4>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <label>Center *</label>
+
+                <select asp-for="CenterId" class="form-control">
+                    <option value="">Select Center</option>
+                    @foreach (var c in ViewBag.Centers)
+                    {
+                        <option value="@c.Id">@c.CenterName</option>
+                    }
+                </select>
+                <span asp-validation-for="CenterId" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label>State</label>
+                <input asp-for="State"
+                       class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label>District</label>
+                <input asp-for="District"
+                       class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label>Block</label>
+                <input asp-for="Block"
+                       class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="card p-3 mb-3">
+        <h4>Status Control</h4>
+        <input asp-for="IsActive" type="checkbox" />
+        Active
+    </div>
+    <button type="submit"
+            class="btn btn-primary">
+        Create
+    </button>
+    <button type="submit"
+            class="btn btn-success">
+        Create & Create Another
+    </button>
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Cancel
+    </a>
+</form>

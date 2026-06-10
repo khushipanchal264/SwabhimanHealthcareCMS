@@ -1,0 +1,68 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+# ASP.NET Core
+wwwroot/lib/
+
+# Logs
+*.log
+
+# Database files
+*.mdf
+*.ldf
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+
+# Publish output
+publish/
+wwwroot/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# NuGet
+packages/
+*.nupkg
+
+# EF Core migrations snapshot backups
+*.bak
+
+# Secrets
+appsettings.Development.json
+secrets.json
+.vs/
+bin/
+obj/
+
+*.user
+*.suo
+
+node_modules/
+
+publish/
+
+appsettings.Development.json

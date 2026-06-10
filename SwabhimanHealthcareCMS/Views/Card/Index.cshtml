@@ -1,0 +1,28 @@
+﻿@model IEnumerable<SwabhimanHealthcareCMS.Models.Card>
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Cards List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Card Number</th>
+            <th>Status</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Customer.Name</td>
+                <td>@item.CardNumber</td>
+                <td>@item.Status</td>
+                <td>@item.CreatedAt.ToString("dd-MMM-yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

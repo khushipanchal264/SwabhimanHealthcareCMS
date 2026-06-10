@@ -1,0 +1,32 @@
+﻿@model SwabhimanHealthcareCMS.Models.Customer
+
+<div class="card p-4">
+
+    <h3>@Model.Name</h3>
+
+    <p><strong>Phone:</strong> @Model.PhoneNo</p>
+
+    <p><strong>Email:</strong> @Model.Email</p>
+
+    <p><strong>Gender:</strong> @Model.Gender</p>
+
+    <p><strong>Blood Group:</strong> @Model.BloodGroup</p>
+
+    <p><strong>Health Status:</strong> @Model.HealthStatus</p>
+
+    <p><strong>Address:</strong> @Model.Address</p>
+
+    <p><strong>State:</strong> @Model.State</p>
+
+    <p><strong>District:</strong> @Model.District</p>
+
+    <p><strong>Block:</strong> @Model.Block</p>
+
+    <p><strong>Ward:</strong> @Model.Ward</p>
+
+    <p>
+        <strong>Status:</strong>
+        @(Model.IsActive ? "Active" : "Inactive")
+    </p>
+
+</div>

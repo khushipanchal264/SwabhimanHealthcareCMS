@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@model DashboardViewModel
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card">
+            <h6>Total Customers</h6>
+            <h2>@Model.TotalCustomers</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <h6>Approved</h6>
+            <h2>@Model.ApprovedCards</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <h6>Pending</h6>
+            <h2>@Model.PendingCards</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <h6>Rejected</h6>
+            <h2>@Model.RejectedCards</h2>
+        </div>
+    </div>
+
+</div>
