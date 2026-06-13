@@ -84,7 +84,7 @@
 
         <div class="row">
 
-            <div class="col-md-3">
+            @* <div class="col-md-3">
                 <label>Center *</label>
 
                 <select asp-for="CenterId" class="form-control">
@@ -95,7 +95,7 @@
                     }
                 </select>
                 <span asp-validation-for="CenterId" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="col-md-3">
                 <label>State</label>
                 <input asp-for="State"
@@ -111,6 +111,10 @@
                 <input asp-for="Block"
                        class="form-control" />
             </div>
+            <div class="col-md-3">
+                <label>Ward</label>
+                <input asp-for="Ward" class="form-control" />
+            </div>
         </div>
     </div>
     <div class="card p-3 mb-3">
@@ -118,11 +122,11 @@
         <input asp-for="IsActive" type="checkbox" />
         Active
     </div>
-    <button type="submit"
+    <button type="button"
             class="btn btn-primary">
         Create
     </button>
-    <button type="submit"
+    <button type="button"
             class="btn btn-success">
         Create & Create Another
     </button>

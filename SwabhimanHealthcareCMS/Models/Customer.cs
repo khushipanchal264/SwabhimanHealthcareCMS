@@ -41,10 +41,10 @@ namespace SwabhimanHealthcareCMS.Models
 
         public string? Ward { get; set; }
 
-        public int CenterId { get; set; }
-   
+        public int? CenterId { get; set; }
+
         [ForeignKey("CenterId")]
-        public Center Center { get; set; }
+        public string Center { get; set; }
 
         public ICollection<Card> Cards { get; set; } = new List<Card>();
         public bool IsActive { get; set; }

@@ -3,18 +3,26 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 <div class="container mt-4">
+    <h6>Customer > List
 
+    </h6>
     <h2>Customers</h2>
 
-    <a asp-action="Create"
-       class="btn btn-primary mb-3">
-        Add Customer
-    </a>
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="Create"
+           class="btn btn-primary">
+            Add Customer
+        </a>
+    </div>
 
     <table class="table table-dark table-hover">
 
         <thead>
             <tr>
+                 <th>
+            <input type="checkbox" id="selectAll" />
+        </th>
+            
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
@@ -31,9 +39,13 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        <input type="checkbox" class="rowCheckbox" value="@item.Id" />
+                    </td>
                     <td>@item.Name</td>
                     <td>@item.PhoneNo</td>
                     <td>@item.Email</td>
+                    <td>@item.Vendor</td>
                     <td>@item.Center</td>
                     <td>
                         <span class="badge bg-success">
