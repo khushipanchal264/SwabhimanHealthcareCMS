@@ -269,6 +269,10 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Block")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CenterCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -280,11 +284,30 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pincode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -314,7 +337,11 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                     b.Property<string>("BloodGroup")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CenterId")
+                    b.Property<string>("Center")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CenterId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -358,7 +385,6 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Vendor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ward")
@@ -435,13 +461,9 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
 
             modelBuilder.Entity("SwabhimanHealthcareCMS.Models.Customer", b =>
                 {
-                    b.HasOne("SwabhimanHealthcareCMS.Models.Center", "Center")
+                    b.HasOne("SwabhimanHealthcareCMS.Models.Center", null)
                         .WithMany("Customers")
-                        .HasForeignKey("CenterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Center");
+                        .HasForeignKey("CenterId");
                 });
 
             modelBuilder.Entity("SwabhimanHealthcareCMS.Models.Center", b =>

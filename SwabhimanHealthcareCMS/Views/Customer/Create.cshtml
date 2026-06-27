@@ -84,18 +84,13 @@
 
         <div class="row">
 
-            @* <div class="col-md-3">
+            <div class="col-md-3">
                 <label>Center *</label>
 
-                <select asp-for="CenterId" class="form-control">
+                <select asp-for="CenterId" asp-items="ViewBag.Centers" class="form-control">
                     <option value="">Select Center</option>
-                    @foreach (var c in ViewBag.Centers)
-                    {
-                        <option value="@c.Id">@c.CenterName</option>
-                    }
                 </select>
-                <span asp-validation-for="CenterId" class="text-danger"></span>
-            </div> *@
+            </div>
             <div class="col-md-3">
                 <label>State</label>
                 <input asp-for="State"
@@ -117,16 +112,17 @@
             </div>
         </div>
     </div>
+    <input type="file" name="ProfileImage" class="form-control" />
     <div class="card p-3 mb-3">
         <h4>Status Control</h4>
         <input asp-for="IsActive" type="checkbox" />
         Active
     </div>
-    <button type="button"
+    <button type="submit"
             class="btn btn-primary">
         Create
     </button>
-    <button type="button"
+    <button type="submit"
             class="btn btn-success">
         Create & Create Another
     </button>

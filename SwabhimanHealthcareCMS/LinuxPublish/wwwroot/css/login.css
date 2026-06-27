@@ -1,0 +1,17 @@
+﻿body {
+    background-color: #f4f6f9;
+}
+
+.login-container {
+    width: 420px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+}

@@ -1,44 +1,63 @@
-﻿@model Center
+﻿@model SwabhimanHealthcareCMS.Models.Center
 
-<h3>Create Center</h3>
+<form asp-action="Create" method="post">
 
-<form asp-action="Create">
-    @* <select asp-for="CenterId" class="form-control">
-        <option value="">Select Center</option>
-    </select> *@
+    <div class="card p-3 mb-3">
+        <h4>Center Details</h4>
 
-    <div class="mb-3">
-        <label>Center Name</label>
         <input asp-for="CenterName"
-               class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label>Center Code</label>
+               class="form-control"
+               placeholder="Center Name" />
+
+        <input asp-for="Email"
+               class="form-control mt-2"
+               placeholder="Email" />
+
         <input asp-for="CenterCode"
-               class="form-control" />
-    </div>
+               class="form-control mt-2"
+               placeholder="Center Code" />
 
-    <div class="mb-3">
-        <label>Area</label>
         <input asp-for="Area"
-               class="form-control" />
+               class="form-control mt-2"
+               placeholder="Area" />
     </div>
 
-    <div class="mb-3">
-        <label>Location</label>
-        <input asp-for="Location"
-               class="form-control" />
+    <div class="card p-3 mb-3">
+        <h4>Location Details</h4>
+
+        <input asp-for="State"
+               class="form-control"
+               placeholder="State" />
+
+        <input asp-for="District"
+               class="form-control mt-2"
+               placeholder="District" />
+
+        <input asp-for="Block"
+               class="form-control mt-2"
+               placeholder="Block" />
+
+        <input asp-for="Pincode"
+               class="form-control mt-2"
+               placeholder="Pin Code" />
     </div>
 
-    <div class="mb-3">
-        <label>Phone</label>
+    <div class="card p-3 mb-3">
+        <h4>Contact Information</h4>
+
         <input asp-for="Phone"
-               class="form-control" />
+               class="form-control"
+               placeholder="Contact Phone" />
+
+        <div class="mt-3">
+            <input asp-for="IsActive" type="checkbox" />
+            Active
+        </div>
     </div>
 
     <button type="submit"
             class="btn btn-primary">
-        Save
+        Create
     </button>
 
 </form>

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SwabhimanHealthcareCMS.Data;
@@ -10,7 +11,17 @@ var connectionString =
         "Connection string 'DefaultConnection' not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString, sqlOptions =>
+    {
+        // Enable retry on failure for transient SQL errors
+        sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null);
+    }));
+//builder.Services
+//    .AddDefaultIdentity<ApplicationUser>()
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -64,9 +75,7 @@ using (var scope = app.Services.CreateScope())
 
     string adminEmail = "Department@gmail.com";
     string adminPassword = "Svabhiman@123";
-
     var user = await userManager.FindByEmailAsync(adminEmail);
-
     if (user == null)
     {
         user = new ApplicationUser
@@ -75,9 +84,7 @@ using (var scope = app.Services.CreateScope())
             Email = adminEmail,
             EmailConfirmed = true
         };
-
         var result = await userManager.CreateAsync(user, adminPassword);
-
         if (!result.Succeeded)
         {
             foreach (var error in result.Errors)
@@ -86,6 +93,7 @@ using (var scope = app.Services.CreateScope())
             }
         }
     }
-}
-
+    }
+//var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+//app.Urls.Add($"http://0.0.0.0:{port}");
 app.Run();
