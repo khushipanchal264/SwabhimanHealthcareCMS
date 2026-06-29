@@ -337,11 +337,7 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                     b.Property<string>("BloodGroup")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Center")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CenterId")
+                    b.Property<int>("CenterId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -461,9 +457,13 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
 
             modelBuilder.Entity("SwabhimanHealthcareCMS.Models.Customer", b =>
                 {
-                    b.HasOne("SwabhimanHealthcareCMS.Models.Center", null)
+                    b.HasOne("SwabhimanHealthcareCMS.Models.Center", "Center")
                         .WithMany("Customers")
-                        .HasForeignKey("CenterId");
+                        .HasForeignKey("CenterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Center");
                 });
 
             modelBuilder.Entity("SwabhimanHealthcareCMS.Models.Center", b =>

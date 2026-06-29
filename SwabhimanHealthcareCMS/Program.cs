@@ -68,32 +68,46 @@ app.MapRazorPages()
 // =========================
 // Create Default Admin User
 // =========================
+//using (var scope = app.Services.CreateScope())
+//{
+//    var userManager =
+//        scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+//    string adminEmail = "Department@gmail.com";
+//    string adminPassword = "Svabhiman@123";
+//    var user = await userManager.FindByEmailAsync(adminEmail);
+//    if (user == null)
+//    {
+//        user = new ApplicationUser
+//        {
+//            UserName = adminEmail,
+//            Email = adminEmail,
+//            EmailConfirmed = true
+//        };
+//        var result = await userManager.CreateAsync(user, adminPassword);
+//        if (!result.Succeeded)
+//        {
+//            foreach (var error in result.Errors)
+//            {
+//                Console.WriteLine(error.Description);
+//            }
+//        }
+//    }
+//    }
 using (var scope = app.Services.CreateScope())
 {
-    var userManager =
-        scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-    string adminEmail = "Department@gmail.com";
-    string adminPassword = "Svabhiman@123";
-    var user = await userManager.FindByEmailAsync(adminEmail);
-    if (user == null)
+    try
     {
-        user = new ApplicationUser
-        {
-            UserName = adminEmail,
-            Email = adminEmail,
-            EmailConfirmed = true
-        };
-        var result = await userManager.CreateAsync(user, adminPassword);
-        if (!result.Succeeded)
-        {
-            foreach (var error in result.Errors)
-            {
-                Console.WriteLine(error.Description);
-            }
-        }
+        var userManager =
+            scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+        var user = await userManager.FindByEmailAsync("test@test.com");
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.ToString());
     }
+}
 //var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 //app.Urls.Add($"http://0.0.0.0:{port}");
 app.Run();

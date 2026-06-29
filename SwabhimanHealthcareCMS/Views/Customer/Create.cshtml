@@ -87,9 +87,14 @@
             <div class="col-md-3">
                 <label>Center *</label>
 
-                <select asp-for="CenterId" asp-items="ViewBag.Centers" class="form-control">
-                    <option value="">Select Center</option>
+                <select asp-for="CenterId"
+                        asp-items="ViewBag.Centers"
+                        class="form-control">
+                    <option >Select Center</option>
                 </select>
+
+                <span asp-validation-for="CenterId"
+                      class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label>State</label>

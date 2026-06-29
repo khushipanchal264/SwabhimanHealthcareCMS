@@ -12,8 +12,8 @@ using SwabhimanHealthcareCMS.Data;
 namespace SwabhimanHealthcareCMS.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260610114425_UpdateCustomerModel")]
-    partial class UpdateCustomerModel
+    [Migration("20260628123315_FixCustomerCenterRelation")]
+    partial class FixCustomerCenterRelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -272,6 +272,10 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Block")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CenterCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -283,11 +287,30 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pincode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -361,7 +384,6 @@ namespace SwabhimanHealthcareCMS.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Vendor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ward")

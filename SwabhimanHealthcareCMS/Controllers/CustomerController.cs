@@ -240,7 +240,15 @@ namespace SwabhimanHealthcareCMS.Controllers
                 if (ProfileImage != null)
                 {
                     string fileName = Path.GetFileName(ProfileImage.FileName);
-                    string path = Path.Combine("wwwroot/uploads", fileName);
+                    string uploadsFolder = Path.Combine("wwwroot", "uploads");
+
+                    // Create directory if it doesn't exist
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    string path = Path.Combine(uploadsFolder, fileName);
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
